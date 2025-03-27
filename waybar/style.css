@@ -1,0 +1,209 @@
+@import '/home/rmn/.config/waybar/catppuccin-mocha.css';
+
+* {
+    font-family: 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
+    font-size: 14px;
+    color: @text;
+}
+
+window#waybar {
+    background-color: transparent; /* Adjusted for transparency */
+    /*padding: 4px;*/
+    transition: background-color 0.5s ease-in-out;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 2px 4px;
+    background-color: transparent;
+}
+
+button:hover {
+    background-color: alpha(@overlay1, 0.3);
+}
+
+#workspaces button {
+    padding: 2px 8px;
+    background-color: transparent;
+    border-radius: 8px;
+    margin: 4px 2px;
+}
+
+#workspaces button:hover {
+    box-shadow: none;
+    border: none;
+    background: alpha(@overlay0, 0.3);
+}
+
+#workspaces button.active {
+    background-color: @lavender;
+    color: @base;
+}
+#workspaces button.active label {
+    color: @base;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+    color: @base;
+}
+
+#clock,
+#battery,
+#system-stats,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#cpu,
+#memory,
+#temperature,
+#disk,
+#mpd,
+#custom-power{
+    padding: 0 8px;
+    color: @base;
+    border-radius: 8px;
+    margin: 4px 4px;
+    
+}
+
+#power-profiles-daemon{
+    background-color: @base;
+}
+#battery {
+    background-color: @teal;
+    color: @base;
+}
+
+#battery.charging, #battery.plugged {
+    background-color: @green;
+    color: @base;
+}
+
+#battery.critical:not(.charging) {
+    background-color: @red;
+    animation: blink 0.5s steps(2) infinite alternate;
+    color: @base;
+}
+
+@keyframes blink {
+    to {
+        background-color: @overlay2;
+    }
+}
+
+#memory{
+    background-color: @lavender;
+}
+#temperature{
+    background-color: @lavender;
+}
+
+#network {
+    background-color: @lavender;
+}
+
+#network.disconnected {
+    background-color: @red;
+}
+#pulseaudio {
+    background-color: @lavender;
+}
+#pulseaudio.muted {
+    background-color: @overlay1;
+    color: @crust;
+}
+
+#tray {
+    background-color: @sapphire;
+    border-radius: 8px;
+}
+
+#idle_inhibitor {
+    background-color: @rosewater;
+    border-radius: 8px;
+}
+#idle_inhibitor.activated {
+    background-color: @red;
+}
+
+#mpd {
+    background-color: @peach;
+    color: @base;
+}
+
+#mpd.disconnected {
+    background-color: @red;
+    color: @base;
+}
+
+#custom-media{
+    color: @text;
+    min-width: 100px;
+}
+
+#custom-power {
+    font-size: 16px;
+    margin-right: 8px;
+    background-color: @red;
+    color: @base;
+}
+
+#custom-power:hover{
+    background-color: @maroon;
+    color: @text;
+}
+
+#power-profiles-daemon {
+    background-color: @peach;
+    color: @base;
+}
+
+#cpu {
+    background-color: @teal;
+    color: @base;
+}
+
+#backlight {
+    background-color: @sapphire;
+    color: @base;
+}
+
+#clock{
+    color: @text;
+}
+#clock:hover {
+    background-color: alpha(@overlay1,0.3);
+}
+
+menu {
+    background: @base;
+    border: 1px solid @surface0;
+}
+
+menuitem {
+    padding: 5px 10px;
+    margin: 5px 0;
+    color: @text;
+    font-size: 12px;
+}
+
+menuitem:hover {
+    background: @crust;
+    color: @mauve;
+}
+menuitem:hover>label {
+    color: @lavender;
+}
