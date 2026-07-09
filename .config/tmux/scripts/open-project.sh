@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Select directory using FZF
-PROJECT_DIR=$(find ~/projects ~/ia ~/dev -maxdepth 1 -type d 2>/dev/null | fzf --prompt="Select project: ")
+PROJECT_DIR=$(find ~/projects ~/ia ~/dev ~/dotfiles -maxdepth 1 -type d 2>/dev/null | fzf --prompt="Select project: ")
 
 # Exit if no directory is selected
 [ -z "$PROJECT_DIR" ] && exit 1
@@ -26,7 +26,7 @@ if [ $SESSION_EXISTS -ne 0 ]; then
   # Create second window for execution
   tmux new-window -t "$SESSION_NAME" -n execute -c "$PROJECT_DIR"
   tmux select-window -t "$SESSION_NAME:execute"
-  
+
   # Sync GitHub issues in the execution window
   if [ -d "$PROJECT_DIR/.git" ]; then
     tmux send-keys -t "$SESSION_NAME:execute" "/Users/rmn/.local/bin/gh-sync" C-m
