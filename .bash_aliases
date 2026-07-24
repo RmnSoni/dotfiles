@@ -1,5 +1,10 @@
 alias jk="~/.config/tmux/scripts/open-project.sh"
 
+# Modern directory navigation and listings.
+if command -v eza >/dev/null 2>&1; then
+  alias ls='eza'
+fi
+
 alias sts="ssh -i ~/ia/keys/ia_admin.pem ia_admin@52.197.181.101"
 alias sls="ssh -i ~/ia/keys/ia_admin.pem ia_admin@54.250.128.150"
 alias sds="ssh -i ~/ia/keys/ia_dev.pem ec2-user@13.113.138.157"
